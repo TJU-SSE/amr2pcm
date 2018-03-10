@@ -12,8 +12,13 @@ fs_out = open("silk/temp.amr","wb")
 
 if not fs_in.read(1) == b'#':
     fs_in.seek(1,0)
+else:
+    fs_in.seek(0,0)
 
 fs_out.write(fs_in.read())
+
+fs_in.close()
+fs_out.close()
 
 if not os.path.exists("silk/decoder"):
     print("Compiling the decoer...")
